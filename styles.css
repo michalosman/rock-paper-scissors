@@ -112,6 +112,7 @@ button {
 
 .fas {
   visibility: hidden;
+  pointer-events: none;
 }
 
 .fas.active {

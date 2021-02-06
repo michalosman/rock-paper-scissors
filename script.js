@@ -1,29 +1,33 @@
-const rockButton = document.querySelector("#rock");
-const paperButton = document.querySelector("#paper");
-const scissorsButton = document.querySelector("#scissors");
+let playerScore = 0;
+let computerScore = 0;
 
-rockButton.addEventListener("click", playRound);
-paperButton.addEventListener("click", playRound);
-scissorsButton.addEventListener("click", playRound);
+const signButtons = document.querySelectorAll(".btn");
+signButtons.forEach((button) => button.addEventListener("click", playRound));
 
 function playRound(e) {
   if (isGameOver()) {
     alert("Game over, click F5 to play again");
     return;
   }
-  const playerSelection = e.target.id.toUpperCase();
+
+  let buttonId;
+  if (e.target.tagName.toLowerCase() === "i") {
+    buttonId = e.target.parentNode.id;
+  } else {
+    buttonId = e.target.id;
+  }
+
+  const playerSelection = convertIdToSign(buttonId);
   const computerSelection = getRandomChoice();
   updateScore(getWinner(playerSelection, computerSelection));
   updateChoices(playerSelection, computerSelection);
 }
 
-const scoreHeading = document.querySelector("#score-heading");
-const playerScorePara = document.querySelector("#player-score");
-const computerScorePara = document.querySelector("#computer-score");
-let playerScore = 0;
-let computerScore = 0;
-
 function updateScore(winner) {
+  const scoreHeading = document.getElementById("score-heading");
+  const playerScorePara = document.getElementById("player-score");
+  const computerScorePara = document.getElementById("computer-score");
+
   if (winner === "tie") {
     scoreHeading.textContent = "It's a tie!";
   } else if (winner === "player") {
@@ -33,31 +37,25 @@ function updateScore(winner) {
     scoreHeading.textContent = "You lost!";
     computerScore++;
   }
-  playerScorePara.textContent = `Player:  ${playerScore}`;
+
+  playerScorePara.textContent = `Player: ${playerScore}`;
   computerScorePara.textContent = `Computer: ${computerScore}`;
+
   if (isGameOver()) setFinalMessage();
 }
 
-const containerDiv = document.querySelector("#container");
-const choicesDiv = document.createElement("div");
-const playerChoicePara = document.createElement("p");
-const computerChoicePara = document.createElement("p");
-
-containerDiv.appendChild(choicesDiv);
-choicesDiv.appendChild(playerChoicePara);
-choicesDiv.appendChild(computerChoicePara);
-
-choicesDiv.style.display = "flex";
-choicesDiv.style.justifyContent = "space-between";
-choicesDiv.style.width = "360px";
-choicesDiv.style.padding = "2rem";
-choicesDiv.style.margin = "0 auto";
-playerChoicePara.style.width = "45%";
-computerChoicePara.style.width = "45%";
-
 function updateChoices(playerSelection, computerSelection) {
-  playerChoicePara.textContent = `Player's choice: ${playerSelection.toLowerCase()}`;
-  computerChoicePara.textContent = `Computer's choice: ${computerSelection.toLowerCase()}`;
+  const playerSign = document.getElementById("player-sign");
+  const computerSign = document.getElementById("computer-sign");
+
+  playerSign.classList.add("active");
+  computerSign.classList.add("active");
+
+  const playerSignClassName = `fa-hand-${playerSelection.toLowerCase()}`;
+  const computerSignClassName = `fa-hand-${computerSelection.toLowerCase()}`;
+
+  playerSign.classList = `fas ${playerSignClassName} active`;
+  computerSign.classList = `fas ${computerSignClassName} active`;
 }
 
 function setFinalMessage() {
@@ -96,6 +94,10 @@ function getRandomChoice() {
     case 2:
       return "SCISSORS";
   }
+}
+
+function convertIdToSign(buttonId) {
+  return buttonId.split("-")[0].toUpperCase();
 }
 
 function isGameOver() {
