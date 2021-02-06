@@ -1,11 +1,12 @@
 :root {
-  --title: #00adb5;
+  --font: #ddd;
   --background: #222831;
-  --font: #eeeeee;
+  --header: #393e46;
+  --title: #00adb5;
+  --border: #00adb5;
   --button: #393e46;
   --button-hover: #4a4f57;
   --button-active: #5b5f68;
-  --border: #00adb5;
 }
 
 *,
@@ -20,27 +21,24 @@ html {
   font-family: "Roboto", sans-serif;
   font-size: 62.5%;
   line-height: 1.6;
-  color: var(--font);
   background-color: var(--background);
+  color: var(--font);
 }
 
 body {
   font-size: 1.6rem;
-  text-align: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+header {
+  font-size: 2.4rem;
+}
+
+h1 {
   line-height: 1.2;
 }
 
 button {
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  background-color: var(--button);
+  border: none;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -48,42 +46,80 @@ button {
   outline: none;
 }
 
-button:hover {
-  background-color: var(--button-hover);
-}
-
-button:active {
-  background-color: var(--button-active);
-}
-
-header {
-  padding: 2rem;
+.header {
+  padding: 3rem;
+  border-bottom: 2px solid var(--border);
+  background-color: var(--header);
+  text-align: center;
 }
 
 .title {
   color: var(--title);
 }
 
+.main {
+  margin-top: 3rem;
+  text-align: center;
+}
+
 .scoreboard {
-  max-width: 250px;
   padding: 1rem;
-  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.score-heading {
+  font-size: 4rem;
 }
 
 .score {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 1rem;
+  font-size: 2.4rem;
 }
 
-.score > p {
-  width: 50%;
+.player-section {
+  margin-right: 10rem;
 }
 
-button {
-  width: 8rem;
-  padding: 1rem;
+.player-section p,
+.computer-section p {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  border: 2px solid var(--font);
+  border-radius: 10px;
+  background-color: var(--button);
+  padding: 2rem;
   margin: 1rem;
-  font-family: inherit;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.btn:active {
+  background-color: var(--button-active);
+}
+
+.far,
+.fas {
+  font-size: 10rem;
+}
+
+.fas {
+  visibility: hidden;
+}
+
+.fas.active {
+  visibility: visible;
+}
+
+@media (max-width: 550px) {
+  html {
+    font-size: 40%;
+  }
 }

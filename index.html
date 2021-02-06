@@ -9,23 +9,42 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1 class="title">Rock Paper Scissors</h1>
     </header>
-    <div id="container">
+    <main class="main">
       <div class="scoreboard">
-        <h2 id="score-heading">Score</h2>
+        <h2 class="score-heading">Score</h2>
         <div class="score">
-          <p id="player-score">You: 0</p>
-          <p id="computer-score">Computer: 0</p>
+          <div class="player-section">
+            <p id="player-score">Player: 0</p>
+            <i class="fas fa-hand-paper" id="player-choice"></i>
+          </div>
+          <div class="computer-section">
+            <p id="computer-score">Computer: 0</p>
+            <i class="fas fa-hand-rock" id="computer-choice"></i>
+          </div>
         </div>
+        <div class="choices"></div>
       </div>
-      <button id="rock">Rock</button>
-      <button id="paper">Paper</button>
-      <button id="scissors">Scissors</button>
-    </div>
+      <div class="buttons">
+        <button class="btn" id="rock-btn">
+          <i class="far fa-hand-rock"></i>
+        </button>
+        <button class="btn" id="paper-btn">
+          <i class="far fa-hand-paper"></i>
+        </button>
+        <button class="btn" id="scissors-btn">
+          <i class="far fa-hand-scissors"></i>
+        </button>
+      </div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
