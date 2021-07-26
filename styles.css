@@ -95,7 +95,6 @@ button {
   border-radius: 10px;
   background-color: var(--button);
   padding: 2rem;
-  margin: 1rem;
 }
 
 .btn:hover {
@@ -118,6 +117,54 @@ button {
 
 .fas.active {
   visibility: visible;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  padding: 3rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--background);
+  text-align: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.message {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.btn-restart {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+.overlay.active {
+  display: block;
 }
 
 @media (max-width: 550px) {
