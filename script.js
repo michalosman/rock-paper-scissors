@@ -1,105 +1,105 @@
-let playerScore = 0;
-let computerScore = 0;
+let playerScore = 0
+let computerScore = 0
 
-const signButtons = document.querySelectorAll(".btn");
-signButtons.forEach((button) => button.addEventListener("click", playRound));
+const signButtons = document.querySelectorAll('.btn')
+signButtons.forEach((button) => button.addEventListener('click', playRound))
 
 function playRound(e) {
   if (isGameOver()) {
-    alert("Game over, click F5 to play again");
-    return;
+    alert('Game over, click F5 to play again')
+    return
   }
 
-  let buttonId;
-  if (e.target.tagName.toLowerCase() === "i") {
-    buttonId = e.target.parentNode.id;
+  let buttonId
+  if (e.target.tagName.toLowerCase() === 'i') {
+    buttonId = e.target.parentNode.id
   } else {
-    buttonId = e.target.id;
+    buttonId = e.target.id
   }
 
-  const playerSelection = convertIdToSign(buttonId);
-  const computerSelection = getRandomChoice();
-  updateScore(getWinner(playerSelection, computerSelection));
-  updateChoices(playerSelection, computerSelection);
+  const playerSelection = convertIdToSign(buttonId)
+  const computerSelection = getRandomChoice()
+  updateScore(getWinner(playerSelection, computerSelection))
+  updateChoices(playerSelection, computerSelection)
 }
 
 function updateScore(winner) {
-  const scoreHeading = document.getElementById("score-heading");
-  const playerScorePara = document.getElementById("player-score");
-  const computerScorePara = document.getElementById("computer-score");
+  const scoreInfo = document.getElementById('score-info')
+  const playerScorePara = document.getElementById('player-score')
+  const computerScorePara = document.getElementById('computer-score')
 
-  if (winner === "tie") {
-    scoreHeading.textContent = "It's a tie!";
-  } else if (winner === "player") {
-    scoreHeading.textContent = "You won!";
-    playerScore++;
-  } else if (winner === "computer") {
-    scoreHeading.textContent = "You lost!";
-    computerScore++;
+  if (winner === 'tie') {
+    scoreInfo.textContent = "It's a tie!"
+  } else if (winner === 'player') {
+    scoreInfo.textContent = 'You won!'
+    playerScore++
+  } else if (winner === 'computer') {
+    scoreInfo.textContent = 'You lost!'
+    computerScore++
   }
 
-  playerScorePara.textContent = `Player: ${playerScore}`;
-  computerScorePara.textContent = `Computer: ${computerScore}`;
+  playerScorePara.textContent = `Player: ${playerScore}`
+  computerScorePara.textContent = `Computer: ${computerScore}`
 
-  if (isGameOver()) setFinalMessage();
+  if (isGameOver()) setFinalMessage()
 }
 
 function updateChoices(playerSelection, computerSelection) {
-  const playerSign = document.getElementById("player-sign");
-  const computerSign = document.getElementById("computer-sign");
+  const playerSign = document.getElementById('player-sign')
+  const computerSign = document.getElementById('computer-sign')
 
-  playerSign.classList.add("active");
-  computerSign.classList.add("active");
+  playerSign.classList.add('active')
+  computerSign.classList.add('active')
 
-  const playerSignClassName = `fa-hand-${playerSelection.toLowerCase()}`;
-  const computerSignClassName = `fa-hand-${computerSelection.toLowerCase()}`;
+  const playerSignClassName = `fa-hand-${playerSelection.toLowerCase()}`
+  const computerSignClassName = `fa-hand-${computerSelection.toLowerCase()}`
 
-  playerSign.classList = `fas ${playerSignClassName} active`;
-  computerSign.classList = `fas ${computerSignClassName} active`;
+  playerSign.classList = `fas ${playerSignClassName} active`
+  computerSign.classList = `fas ${computerSignClassName} active`
 }
 
 function setFinalMessage() {
   return playerScore > computerScore
-    ? (scoreHeading.textContent = "Game over, you won")
-    : (scoreHeading.textContent = "Game over, you lost");
+    ? (scoreHeading.textContent = 'Game over, you won')
+    : (scoreHeading.textContent = 'Game over, you lost')
 }
 
 function getWinner(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return "tie";
+    return 'tie'
   }
   if (
-    (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
-    (playerSelection === "SCISSORS" && computerSelection === "PAPER") ||
-    (playerSelection === "PAPER" && computerSelection === "ROCK")
+    (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
+    (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
+    (playerSelection === 'PAPER' && computerSelection === 'ROCK')
   ) {
-    return "player";
+    return 'player'
   }
   if (
-    (computerSelection === "ROCK" && playerSelection === "SCISSORS") ||
-    (computerSelection === "SCISSORS" && playerSelection === "PAPER") ||
-    (computerSelection === "PAPER" && playerSelection === "ROCK")
+    (computerSelection === 'ROCK' && playerSelection === 'SCISSORS') ||
+    (computerSelection === 'SCISSORS' && playerSelection === 'PAPER') ||
+    (computerSelection === 'PAPER' && playerSelection === 'ROCK')
   ) {
-    return "computer";
+    return 'computer'
   }
 }
 
 function getRandomChoice() {
-  let randomNumber = Math.floor(Math.random() * 3);
+  let randomNumber = Math.floor(Math.random() * 3)
   switch (randomNumber) {
     case 0:
-      return "ROCK";
+      return 'ROCK'
     case 1:
-      return "PAPER";
+      return 'PAPER'
     case 2:
-      return "SCISSORS";
+      return 'SCISSORS'
   }
 }
 
 function convertIdToSign(buttonId) {
-  return buttonId.split("-")[0].toUpperCase();
+  return buttonId.split('-')[0].toUpperCase()
 }
 
 function isGameOver() {
-  return playerScore === 5 || computerScore === 5;
+  return playerScore === 5 || computerScore === 5
 }

@@ -18,7 +18,7 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 62.5%;
   line-height: 1.6;
   background-color: var(--background);
@@ -67,24 +67,25 @@ button {
   margin-bottom: 2rem;
 }
 
-.score-heading {
+.score-info {
   font-size: 4rem;
 }
 
-.score {
+.scores-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 400px;
   padding: 1rem;
+  margin: 0 auto;
   font-size: 2.4rem;
 }
 
-.player-section {
-  margin-right: 10rem;
+.score {
+  width: 150px;
 }
 
-.player-section p,
-.computer-section p {
+.score p {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
