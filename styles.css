@@ -23,6 +23,9 @@ html {
   line-height: 1.6;
   background-color: var(--background);
   color: var(--font);
+  /* footer support */
+  position: relative;
+  min-height: 100%;
 }
 
 body {
@@ -60,6 +63,8 @@ button {
 .main {
   margin-top: 3rem;
   text-align: center;
+  /* footer support */
+  margin-bottom: 4rem;
 }
 
 .scoreboard {
@@ -90,6 +95,13 @@ button {
   margin-bottom: 2rem;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
 .btn {
   border: 2px solid var(--font);
   border-radius: 10px;
@@ -117,6 +129,30 @@ button {
 
 .fas.active {
   visibility: visible;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  color: var(--font);
+  font-size: 2rem;
+}
+
+.fa-github {
+  margin-left: 1rem;
+  color: var(--font);
+  font-size: 2.4rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
 }
 
 .modal {

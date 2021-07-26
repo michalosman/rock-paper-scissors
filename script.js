@@ -61,8 +61,14 @@ rockBtn.addEventListener('click', () => handleClick('ROCK'))
 paperBtn.addEventListener('click', () => handleClick('PAPER'))
 scissorsBtn.addEventListener('click', () => handleClick('SCISSORS'))
 restartBtn.addEventListener('click', restartGame)
+overlay.addEventListener('click', closeEndgameModal)
 
 function handleClick(playerSelection) {
+  if (isGameOver()) {
+    openEndgameModal()
+    return
+  }
+
   const computerSelection = getRandomChoice()
   playRound(playerSelection, computerSelection)
   updateChoices(playerSelection, computerSelection)
@@ -70,6 +76,7 @@ function handleClick(playerSelection) {
 
   if (isGameOver()) {
     openEndgameModal()
+    setFinalMessage()
   }
 }
 
@@ -97,7 +104,11 @@ function updateScore() {
 function openEndgameModal() {
   endgameModal.classList.add('active')
   overlay.classList.add('active')
-  setFinalMessage()
+}
+
+function closeEndgameModal() {
+  endgameModal.classList.remove('active')
+  overlay.classList.remove('active')
 }
 
 function setFinalMessage() {
