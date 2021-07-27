@@ -207,4 +207,13 @@ button {
   html {
     font-size: 40%;
   }
+
+  .footer {
+    font-size: 3rem;
+  }
+
+  .fa-github {
+    margin-left: 2rem;
+    font-size: 3.8rem;
+  }
 }
