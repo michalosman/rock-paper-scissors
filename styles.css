@@ -1,12 +1,11 @@
 :root {
-  --font: #ddd;
-  --background: #222831;
-  --header: #393e46;
-  --title: #00adb5;
-  --border: #00adb5;
-  --button: #393e46;
-  --button-hover: #4a4f57;
-  --button-active: #5b5f68;
+  --primary-light: #ddd;
+  --secondary-light: #00adb5;
+  --primary-dark: #222831;
+  --secondary-dark: #393e46;
+  --secondary-dark: #393e46;
+  --secondary-dark-hover: #4a4f57;
+  --secondary-dark-active: #5b5f68;
 }
 
 *,
@@ -18,26 +17,18 @@
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
-  font-size: 62.5%;
-  line-height: 1.6;
-  background-color: var(--background);
-  color: var(--font);
   /* footer support */
   position: relative;
   min-height: 100%;
 }
 
 body {
-  font-size: 1.6rem;
-}
-
-header {
-  font-size: 2.4rem;
-}
-
-h1 {
-  line-height: 1.2;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  /* footer support */
+  margin-bottom: 150px;
 }
 
 button {
@@ -49,31 +40,35 @@ button {
   outline: none;
 }
 
+/* HEADER */
+
 .header {
-  padding: 3rem;
-  border-bottom: 2px solid var(--border);
-  background-color: var(--header);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  border-bottom: 2px solid var(--secondary-light);
+  background-color: var(--secondary-dark);
 }
 
 .title {
-  color: var(--title);
+  font-size: 50px;
+  color: var(--secondary-light);
 }
 
+/* MAIN */
+
 .main {
-  margin-top: 3rem;
+  margin-top: 30px;
   text-align: center;
-  /* footer support */
-  margin-bottom: 4rem;
 }
 
 .scoreboard {
-  padding: 1rem;
-  margin-bottom: 2rem;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .score-info {
-  font-size: 4rem;
+  font-size: 40px;
 }
 
 .scores-container {
@@ -81,9 +76,9 @@ button {
   align-items: center;
   justify-content: space-between;
   max-width: 400px;
-  padding: 1rem;
+  padding: 10px;
   margin: 0 auto;
-  font-size: 2.4rem;
+  font-size: 24px;
 }
 
 .score {
@@ -91,35 +86,35 @@ button {
 }
 
 .score p {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 30px;
 }
 
 .btn {
-  border: 2px solid var(--font);
+  border: 2px solid var(--primary-light);
   border-radius: 10px;
-  background-color: var(--button);
-  padding: 2rem;
+  background-color: var(--secondary-dark);
+  padding: 20px;
 }
 
 .btn:hover {
-  background-color: var(--button-hover);
+  background-color: var(--secondary-dark-hover);
 }
 
 .btn:active {
-  background-color: var(--button-active);
+  background-color: var(--secondary-dark-active);
 }
 
 .far,
 .fas {
-  font-size: 10rem;
+  font-size: 100px;
 }
 
 .fas {
@@ -131,6 +126,8 @@ button {
   visibility: visible;
 }
 
+/* FOOTER */
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -139,15 +136,15 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 2rem;
-  color: var(--font);
-  font-size: 2rem;
+  padding: 10px;
+  color: var(--primary-light);
+  font-size: 20px;
 }
 
 .fa-github {
-  margin-left: 1rem;
-  color: var(--font);
-  font-size: 2.4rem;
+  margin-left: 10px;
+  color: var(--primary-light);
+  font-size: 24px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -155,19 +152,22 @@ button {
   transform: rotate(360deg) scale(1.2);
 }
 
+/* MODALS */
+
 .modal {
   position: fixed;
   z-index: 1;
   top: 50%;
   left: 50%;
   width: 500px;
-  padding: 3rem;
-  border: 2px solid var(--border);
+  padding: 30px;
+  border: 2px solid var(--secondary-light);
   border-radius: 10px;
-  background-color: var(--background);
+  background-color: var(--primary-dark);
   text-align: center;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
+  font-size: 30px;
 }
 
 .modal.active {
@@ -175,8 +175,7 @@ button {
 }
 
 .message {
-  margin-bottom: 3rem;
-  font-size: 3rem;
+  margin-bottom: 30px;
 }
 
 .bold {
@@ -184,8 +183,7 @@ button {
 }
 
 .btn-restart {
-  margin-top: 1rem;
-  font-size: 3rem;
+  margin-top: 10px;
 }
 
 .overlay {
@@ -203,17 +201,24 @@ button {
   display: block;
 }
 
+/* MEDIA QUERIES */
+
 @media (max-width: 550px) {
-  html {
-    font-size: 40%;
+  .title {
+    font-size: 30px;
   }
 
-  .footer {
-    font-size: 3rem;
+  .score-info {
+    font-size: 30px;
   }
 
-  .fa-github {
-    margin-left: 2rem;
-    font-size: 3.8rem;
+  .far,
+  .fas {
+    font-size: 55px;
+  }
+
+  .modal {
+    width: 95%;
+    font-size: 24px;
   }
 }
