@@ -135,6 +135,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   width: 100%;
   padding: 10px;
   color: var(--primary-light);
@@ -142,7 +143,6 @@ button {
 }
 
 .fa-github {
-  margin-left: 10px;
   color: var(--primary-light);
   font-size: 24px;
   transition: transform 0.3s ease-in-out;
