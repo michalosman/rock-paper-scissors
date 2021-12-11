@@ -1,11 +1,10 @@
 :root {
   --primary-light: #ddd;
-  --secondary-light: #00adb5;
   --primary-dark: #222831;
-  --secondary-dark: #393e46;
   --secondary-dark: #393e46;
   --secondary-dark-hover: #4a4f57;
   --secondary-dark-active: #5b5f68;
+  --header: #111720;
 }
 
 *,
@@ -46,13 +45,13 @@ button {
   display: flex;
   justify-content: center;
   padding: 30px;
-  border-bottom: 2px solid var(--secondary-light);
-  background-color: var(--secondary-dark);
+  background-color: var(--header);
 }
 
 .title {
   font-size: 50px;
-  color: var(--secondary-light);
+  color: var(--primary-light);
+  color: #fac650;
 }
 
 /* MAIN */
@@ -82,12 +81,13 @@ button {
 }
 
 .score {
-  width: 150px;
+  width: 170px;
 }
 
 .score p {
   margin-top: 10px;
   margin-bottom: 20px;
+  font-size: 30px;
 }
 
 .buttons {
@@ -98,10 +98,14 @@ button {
 }
 
 .btn {
-  border: 2px solid var(--primary-light);
+  /* border: 2px solid var(--primary-light); */
   border-radius: 10px;
   background-color: var(--secondary-dark);
-  padding: 20px;
+}
+
+.btn-square {
+  width: 180px;
+  height: 180px;
 }
 
 .btn:hover {
@@ -112,18 +116,8 @@ button {
   background-color: var(--secondary-dark-active);
 }
 
-.far,
-.fas {
+.sign {
   font-size: 100px;
-}
-
-.fas {
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.fas.active {
-  visibility: visible;
 }
 
 /* FOOTER */
@@ -161,13 +155,14 @@ button {
   left: 50%;
   width: 500px;
   padding: 30px;
-  border: 2px solid var(--secondary-light);
+  /* border: 2px solid var(--primary-light); */
   border-radius: 10px;
   background-color: var(--primary-dark);
   text-align: center;
+  font-size: 30px;
+  user-select: none;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
-  font-size: 30px;
 }
 
 .modal.active {
@@ -175,15 +170,12 @@ button {
 }
 
 .message {
-  margin-bottom: 30px;
-}
-
-.bold {
-  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .btn-restart {
   margin-top: 10px;
+  padding: 10px 20px;
 }
 
 .overlay {
@@ -209,12 +201,24 @@ button {
   }
 
   .score-info {
-    font-size: 30px;
+    font-size: 26px;
   }
 
-  .far,
-  .fas {
-    font-size: 55px;
+  .score p {
+    font-size: 24px;
+  }
+
+  .buttons {
+    gap: 19px;
+  }
+
+  .btn-square {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sign {
+    font-size: 50px;
   }
 
   .modal {

@@ -25,28 +25,34 @@
         <div class="scores-container">
           <div class="score">
             <p id="playerScore">Player: 0</p>
-            <i class="fas fa-hand-rock" id="playerSign"></i>
+            <div class="sign" id="playerSign">❔</div>
           </div>
           <div class="score">
             <p id="computerScore">Computer: 0</p>
-            <i class="fas fa-hand-rock" id="computerSign"></i>
+            <div class="sign" id="computerSign">❔</div>
           </div>
         </div>
       </div>
       <div class="buttons">
-        <button class="btn" id="rockBtn">
-          <i class="far fa-hand-rock"></i>
+        <button class="btn btn-square" id="rockBtn">
+          <div class="sign">✊</div>
         </button>
-        <button class="btn" id="paperBtn">
-          <i class="far fa-hand-paper"></i>
+        <button class="btn btn-square" id="paperBtn">
+          <div class="sign">✋</div>
         </button>
-        <button class="btn" id="scissorsBtn">
-          <i class="far fa-hand-scissors"></i>
+        <button class="btn btn-square" id="scissorsBtn">
+          <div class="sign">✌</div>
         </button>
       </div>
     </main>
     <footer class="footer">
-      <p>Copyright © 2021 michalosman</p>
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        michalosman
+      </p>
       <a href="https://github.com/michalosman" target="_blank">
         <i class="fab fa-github"></i
       ></a>

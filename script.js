@@ -81,11 +81,29 @@ function handleClick(playerSelection) {
 }
 
 function updateChoices(playerSelection, computerSelection) {
-  const playerSignClassName = `fa-hand-${playerSelection.toLowerCase()}`
-  const computerSignClassName = `fa-hand-${computerSelection.toLowerCase()}`
+  switch (playerSelection) {
+    case 'ROCK':
+      playerSign.textContent = '✊'
+      break
+    case 'PAPER':
+      playerSign.textContent = '✋'
+      break
+    case 'SCISSORS':
+      playerSign.textContent = '✌'
+      break
+  }
 
-  playerSign.classList = `fas ${playerSignClassName} active`
-  computerSign.classList = `fas ${computerSignClassName} active`
+  switch (computerSelection) {
+    case 'ROCK':
+      computerSign.textContent = '✊'
+      break
+    case 'PAPER':
+      computerSign.textContent = '✋'
+      break
+    case 'SCISSORS':
+      computerSign.textContent = '✌'
+      break
+  }
 }
 
 function updateScore() {
@@ -113,8 +131,8 @@ function closeEndgameModal() {
 
 function setFinalMessage() {
   return playerScore > computerScore
-    ? (endgameMsg.textContent = 'You won 😀')
-    : (endgameMsg.textContent = 'You lost 🙁')
+    ? (endgameMsg.innerHTML = '<strong>You won</strong> 😀')
+    : (endgameMsg.innerHTML = '<strong>You lost</strong> 🙁')
 }
 
 function restartGame() {
@@ -123,8 +141,8 @@ function restartGame() {
   scoreInfo.textContent = 'Score'
   playerScorePara.textContent = 'Player: 0'
   computerScorePara.textContent = 'Computer: 0'
-  playerSign.classList.remove('active')
-  computerSign.classList.remove('active')
+  playerSign.textContent = '❔'
+  computerSign.textContent = '❔'
   endgameModal.classList.remove('active')
   overlay.classList.remove('active')
 }
