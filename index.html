@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="favicon.ico" />
     <script
       src="https://kit.fontawesome.com/4c536a6bd5.js"
       crossorigin="anonymous"
@@ -17,19 +18,22 @@
   </head>
   <body>
     <header class="header">
-      <h1 class="title">Rock Paper Scissors</h1>
+      <h1 class="title">ROCK PAPER SCISSORS</h1>
     </header>
     <main class="main">
       <div class="scoreboard">
-        <h2 class="score-info" id="scoreInfo">Score</h2>
+        <h2 class="score-info" id="scoreInfo">Choose your weapon</h2>
+        <h3 class="score-message" id="scoreMessage">
+          First to score 5 points wins the game
+        </h3>
         <div class="scores-container">
-          <div class="score">
-            <p id="playerScore">Player: 0</p>
+          <div class="score-box">
             <div class="sign" id="playerSign">❔</div>
+            <p class="score" id="playerScore">Player: 0</p>
           </div>
-          <div class="score">
-            <p id="computerScore">Computer: 0</p>
+          <div class="score-box">
             <div class="sign" id="computerSign">❔</div>
+            <p class="score" id="computerScore">Computer: 0</p>
           </div>
         </div>
       </div>
@@ -58,9 +62,8 @@
       ></a>
     </footer>
     <div class="modal" id="endgameModal">
-      <p class="message bold" id="endgameMsg"></p>
-      <p class="message">Would you like to try again?</p>
-      <button class="btn btn-restart" id="restartBtn">Restart</button>
+      <p class="modal-title" id="endgameMsg"></p>
+      <button class="btn btn-restart" id="restartBtn">Play again</button>
     </div>
     <div class="overlay" id="overlay"></div>
     <script src="script.js"></script>

@@ -5,6 +5,7 @@
   --secondary-dark-hover: #4a4f57;
   --secondary-dark-active: #5b5f68;
   --header: #111720;
+  --primary-yellow: #fac650;
 }
 
 *,
@@ -44,30 +45,34 @@ button {
 .header {
   display: flex;
   justify-content: center;
-  padding: 30px;
+  padding: 40px 0px;
   background-color: var(--header);
 }
 
 .title {
-  font-size: 50px;
-  color: var(--primary-light);
-  color: #fac650;
+  font-size: 32px;
+  color: var(--primary-yellow);
+  font-family: 'Press Start 2P', cursive;
 }
 
 /* MAIN */
 
 .main {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
 }
 
 .scoreboard {
-  padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .score-info {
-  font-size: 40px;
+  font-size: 32px;
+}
+
+.score-message {
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .scores-container {
@@ -77,17 +82,17 @@ button {
   max-width: 400px;
   padding: 10px;
   margin: 0 auto;
-  font-size: 24px;
 }
 
-.score {
+.score-box {
   width: 170px;
 }
 
-.score p {
+.score {
   margin-top: 10px;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .buttons {
@@ -98,7 +103,6 @@ button {
 }
 
 .btn {
-  /* border: 2px solid var(--primary-light); */
   border-radius: 10px;
   background-color: var(--secondary-dark);
 }
@@ -153,9 +157,8 @@ button {
   z-index: 1;
   top: 50%;
   left: 50%;
-  width: 500px;
+  width: 300px;
   padding: 30px;
-  /* border: 2px solid var(--primary-light); */
   border-radius: 10px;
   background-color: var(--primary-dark);
   text-align: center;
@@ -169,13 +172,15 @@ button {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.message {
-  margin-bottom: 10px;
+.modal-title {
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .btn-restart {
-  margin-top: 10px;
   padding: 10px 20px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 .overlay {
@@ -197,19 +202,15 @@ button {
 
 @media (max-width: 550px) {
   .title {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   .score-info {
     font-size: 26px;
   }
 
-  .score p {
-    font-size: 24px;
-  }
-
   .buttons {
-    gap: 19px;
+    gap: 10px;
   }
 
   .btn-square {
@@ -223,6 +224,5 @@ button {
 
   .modal {
     width: 95%;
-    font-size: 24px;
   }
 }

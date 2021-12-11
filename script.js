@@ -24,6 +24,7 @@ function playRound(playerSelection, computerSelection) {
     computerScore++
     roundWinner = 'computer'
   }
+  updateScoreMessage(roundWinner, playerSelection, computerSelection)
 }
 
 function getRandomChoice() {
@@ -45,6 +46,7 @@ function isGameOver() {
 // UI
 
 const scoreInfo = document.getElementById('scoreInfo')
+const scoreMessage = document.getElementById('scoreMessage')
 const playerScorePara = document.getElementById('playerScore')
 const computerScorePara = document.getElementById('computerScore')
 const playerSign = document.getElementById('playerSign')
@@ -119,6 +121,29 @@ function updateScore() {
   computerScorePara.textContent = `Computer: ${computerScore}`
 }
 
+function updateScoreMessage(winner, playerSelection, computerSelection) {
+  if (winner === 'player') {
+    scoreMessage.textContent = `${capitalizeFirstLetter(
+      playerSelection
+    )} beats ${computerSelection.toLowerCase()}`
+    return
+  }
+  if (winner === 'computer') {
+    scoreMessage.textContent = `${capitalizeFirstLetter(
+      playerSelection
+    )} is beaten by ${computerSelection.toLowerCase()}`
+    return
+  }
+
+  scoreMessage.textContent = `${capitalizeFirstLetter(
+    playerSelection
+  )} ties with ${computerSelection.toLowerCase()}`
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+}
+
 function openEndgameModal() {
   endgameModal.classList.add('active')
   overlay.classList.add('active')
@@ -131,14 +156,15 @@ function closeEndgameModal() {
 
 function setFinalMessage() {
   return playerScore > computerScore
-    ? (endgameMsg.innerHTML = '<strong>You won</strong> 😀')
-    : (endgameMsg.innerHTML = '<strong>You lost</strong> 🙁')
+    ? (endgameMsg.textContent = 'You won!')
+    : (endgameMsg.textContent = 'You lost...')
 }
 
 function restartGame() {
   playerScore = 0
   computerScore = 0
-  scoreInfo.textContent = 'Score'
+  scoreInfo.textContent = 'Choose your weapon'
+  scoreMessage.textContent = 'First to score 5 points wins the game'
   playerScorePara.textContent = 'Player: 0'
   computerScorePara.textContent = 'Computer: 0'
   playerSign.textContent = '❔'
