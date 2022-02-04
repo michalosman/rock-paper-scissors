@@ -108,8 +108,8 @@ button {
 }
 
 .btn-square {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
 }
 
 .btn:hover {
@@ -121,7 +121,8 @@ button {
 }
 
 .sign {
-  font-size: 100px;
+  font-size: 80px;
+  margin-bottom: 10px;
 }
 
 /* FOOTER */
