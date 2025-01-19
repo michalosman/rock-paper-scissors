@@ -1,5 +1,5 @@
 :root {
-  --primary-light: #ddd;
+  --primary-light: #eee;
   --primary-dark: #222831;
   --secondary-dark: #393e46;
   --secondary-dark-hover: #4a4f57;
@@ -25,7 +25,7 @@ html {
 body {
   background-color: var(--primary-dark);
   color: var(--primary-light);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
   /* footer support */
   margin-bottom: 100px;
@@ -52,7 +52,7 @@ button {
 .title {
   font-size: 32px;
   color: var(--primary-yellow);
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
 }
 
 /* MAIN */
@@ -141,13 +141,15 @@ button {
   font-size: 20px;
 }
 
-.fa-github {
+.github-logo {
+  display: block;
+  max-width: 28px;
+  max-height: 28px;
   color: var(--primary-light);
-  font-size: 24px;
   transition: transform 0.3s ease-in-out;
 }
 
-.fa-github:hover {
+.github-logo:hover {
   transform: rotate(360deg) scale(1.2);
 }
 
